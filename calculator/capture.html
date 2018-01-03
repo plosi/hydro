@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Capture Zone Analysis</title>
+        
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" /> 
+        <script src="js/capture.js" type="text/javascript"></script>
+        <script src="js/curve.min.js" type="text/javascript"></script>
+        
+    </head>
+
+    <body>
+        <b><a href="index.html">Home</a></b>
+        <h1>Capture Zone Analysis</h1>
+        <p>Il calcolo si basa sull'ipotesi di mezzo omogeneo e isotropo e pozzo completamente fenestrante l'acquifero.</p>
+        <div class="container">
+            <form name="" action="" method="post">
+                <div class="aquifer">
+                    <label class="form_label">K [m/s]:</label>
+                    <input type="text" class="text_input" title="horizontal permeabilty" id="hCond" name="hCond" value="" />
+                    <select id="expCond" onchange="SoilType()">
+                        <option value="1">E+00</option>
+                        <option value="0.1">E-01</option>
+                        <option value="0.01">E-02</option>
+                        <option value="0.001">E-03</option>
+                        <option value="0.0001">E-04</option>
+                        <option value="0.00001">E-05</option>
+                        <option value="0.000001">E-06</option>
+                        <option value="0.0000001">E-07</option>
+                        <option value="0.00000001">E-08</option>
+                        <option value="0.000000001">E-09</option>
+                        <option value="0.0000000001">E-10</option>
+                    </select>
+                    <span id="soilType"></span><br />
+                    <label class="form_label">B [m]:</label>
+                    <input type="text" class="text_input" title="saturated aquifer thickness" id="thickness" name="thickness" value="" /><br />
+                    <label class="form_label">i [m/m]:</label>
+                    <input type="text" class="text_input" title="static gradient" id="gradient" name="gradient" value="" /><br />
+                </div>
+                
+                <div class="well">
+                    <label class="form_label">Q [m&sup3;/h]:</label>
+                    <input type="text" class="text_input" title="pumping flow rate" id="flowRate" name="flowRate" value="" /><br />
+                </div>
+                
+                <div class="submit">
+                    <input type="button" value="Calcola" onclick="capture(this.form);" />
+                </div>
+                
+                <div class="result">
+                    <h2>Risultati</h2>
+                    <label class="form_label">Punto di stagnazione [m]:</label>
+                    <input type="text" class="text_input" id="stagPoint" value="" />
+                    <br />
+                    <label class="form_label">Fronte di richiamo [m]:</label>
+                    <input type="text" class="text_input" id="captureWidth" value="" /><span> (all'infinito)</span>
+                    <br />
+                    <label class="form_label">Fronte di richiamo [m]:</label>
+                    <input type="text" class="text_input" id="captureWidthWell" value="" /><span> (all'asse del pozzo)</span>
+                </div>
+            </form>
+            <br />
+            <!--<canvas id="capture_zone" style="border: 1px solid #fa2b05; display: block;"></canvas>
+            <span id="table"></span>-->
+        </div>
+    </body>
+</html>

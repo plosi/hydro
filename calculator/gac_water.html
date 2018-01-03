@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>GAC water</title>
+        
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" /> 
+        <script src="js/gac_water.js" type="text/javascript"></script>
+        
+    </head>
+
+    <body>
+        <b><a href="index.html">Home</a></b>
+        <h1>Filtri a carbone attivo per acqua</h1>
+        
+        <div class="container">
+            <form name="" action="" method="post">
+                <div class="GAC">
+                    <h2>Caratteristiche media filtrante</h2>
+                    <label class="form_label">Densit&agrave; apparente GAC [g/l]:</label>
+                    <input type="text" class="text_input" title="GAC density" id="density" name="density" value="" />
+                    <br />
+                    
+                    <label class="form_label">Isoterma di Freundlich</label><br />
+                    <select id="compound" onchange="freundlich()">
+                        <option value="null"></option>
+                        <option value="toluene">Toluene</option>
+                        <option value="TCE">Tricloroetilene</option>
+                        <option value="PCE">Tetracloroetilene</option>
+                        <option value="1,2-DCA">1,2-Dicloroetano</option>
+                        <option value="cloroformio">Cloroformio</option>
+                    </select>
+                    <br />
+                    <label class="form_label">K: </label><span id="K"></span><br />
+                    <label class="form_label">l/n: </label><span id="l/n"></span><br />
+                </div>
+                
+                <div class="flow">
+                    <h2>Caratteristiche effluente</h2>
+                    <label class="form_label">Cin [ppb]</label>
+                    <input type="text" class="text_input" title="concentration in" id="Cin" name="Cin" value="" onchange="ppm()" />
+                    <br />
+                    <label class="form_label">Cin [ppm]</label><span id="ppm_in"></span>
+                    <br />
+                    
+                    <label class="form_label">Cout [ppb]</label>
+                    <input type="text" class="text_input" title="concentration out" id="Cout" name="Cout" value="0" onchange="ppm()" />
+                    <br />
+                    <label class="form_label">Cout [ppm]</label><span id="ppm_out"></span>
+                    <br />
+                    
+                    <label class="form_label">Flowrate [m&sup3;/h]:</label>
+                    <input type="text" class="text_input" title="flowrate" id="q" name="q" value="" onchange="lpm()"/>
+                    <br />
+                    <label class="form_label">Flowrate [l/min]:</label><span id="lpm"></span>
+                    <br />   
+                </div>
+                
+                <div class="filter">
+                    <h2>Caratteristiche letto filtrante</h2>
+                    <label class="form_label">Altezza [m]</label>
+                    <input type="text" class="text_input" title="altezza letto filtrante" id="h" name="h" value="" />
+                    <br />
+                    <label class="form_label">Diametro [m]</label>
+                    <input type="text" class="text_input" title="diametro letto filtrante" id="d" name="d" value="" onchange="section()" />
+                    <br />
+                    <label class="form_label">Sezione [m]: </label><span id="section"></span><br />
+                    <label class="form_label">Velocità di filtrazione [m/h]: </label><span id="velocity"></span>
+                    <br />
+                </div>
+
+                
+                <div class="submit">
+                    <input type="button" value="Calcola" onclick="gac_water(this.form);" />
+                </div>
+                
+                <div class="results">
+                    <h2>Risultati</h2>
+                    <label class="form_label">Empty Bed Contact Time (EBCT) [min]:</label>
+                    <input type="text" class="text_input" id="EBCT" value="" />
+                    <br />
+                    <label class="form_label">Capacit&agrave; adsorbimento GAC [%]:</label>
+                    <input type="text" class="text_input" id="efficiency" value="" />
+                    <br />
+                    <label class="form_label">Carbon Usage Rate (CUR) [kg/h]:</label>
+                    <input type="text" class="text_input" id="CUR" value="" />
+                    <br />
+                    <label class="form_label">Massa di GAC [kg]:</label>
+                    <input type="text" class="text_input" id="mass" value="" />
+                    <br />
+                    <label class="form_label">Bed life [h]:</label>
+                    <input type="text" class="text_input" id="bedlife" value="" />
+                    <br />
+                    <label class="form_label">Bed life [days]:</label><span id="bedlife_day"></span>
+                </div>
+            </form>
+            <br />
+        </div>
+    </body>
+</html>

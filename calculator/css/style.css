@@ -1,0 +1,35 @@
+/* Fonts import */
+@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two);
+@import url(http://fonts.googleapis.com/css?family=McLaren);
+@import url(http://fonts.googleapis.com/css?family=Varela+Round);
+@import url(http://fonts.googleapis.com/css?family=Englebert);
+
+/*******************Reset*******************/
+html, body, div, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, ol, ul, li, form, legend, label, table, header, footer, nav, section { 
+	margin: 0; 
+	padding: 0; 
+} 
+ol, ul { 
+	list-style: none; 
+} 
+table { 
+	border-collapse: collapse; 
+	border-spacing: 0; 
+}
+header, footer, nav, section, article, hgroup, figure {
+	display: block;	
+}
+/****************End Reset********************/
+
+.container{
+	min-width: 300px;
+}
+
+.form_label{
+	margin: 0 10px 20px 5px;
+	width: 50px;
+}
+
+.text_input{
+	width: 45px;
+}
